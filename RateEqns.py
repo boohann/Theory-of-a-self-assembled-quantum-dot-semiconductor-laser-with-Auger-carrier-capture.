@@ -18,14 +18,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import scipy as sci
 
-### Run progress bar ###
-import time
-import progressbar
-
-bar = progressbar.ProgressBar(max_value=progressbar.UnknownLength)
-for i in range(20):
-    time.sleep(0.1)
-    bar.update(i)
 
 
 ### Simualtion Outputs ###
@@ -47,7 +39,7 @@ N_d = 2e15                                      # 2D density of dots (m^-2)
 c = 2.99792458e8                                # SOL (ms^-1)
 n_rfr = 3.4                                     # Refractive index
 v_g = c/n_rfr                                   # Group velocity
-B_tran = 0#1e-4                                   # Rate constant of Auger transport (m^2s^-1)
+B_tran = 1e-4                                   # Rate constant of Auger transport (m^2s^-1)
 mu = q*3e-10                                    # Dipole moment of optical transition (Cm)
 hbar = 6.582119569e-16                          # Reduced Plank's constant(eVs)
 omg_0 = 1/hbar                                  # Angular frequency of central frequency (rad s^-1)
