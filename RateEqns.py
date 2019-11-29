@@ -13,10 +13,10 @@
 # URL: https://www.researchgate.net/publication/8524953 Sensitivity
 
 from scipy.integrate import ode
-from pylab import *
+import pylab  as pl
 import matplotlib.pyplot as plt
 import numpy as np
-import scipy as sci
+#import scipy as sci
 
 
 
@@ -68,7 +68,7 @@ sigRes = (np.pi*(mu**2)*omg_0)/(2*hbar*c*n_rfr*Ep_0*gam_2)
 ### Define equations to be solved
 def Laser_rates(t, y, p):
     
-    dy = zeros([4])
+    dy = pl.zeros([4])
     dy[0] = J/(q*l) - y[0]/t_0 - C*(y[0]**2)*2*N_d*(1-y[2])                                           # N
     dy[1] = -v_g*sigRes*(2*y[1]-1)*y[3] - y[1]/t_D0 + C*(y[0]**2)*(1-y[1]) - B_tran*(y[1]-y[2])       # roRes
     dy[2] = -v_g*sigRes*r_star*(2*y[1]-1)*y[3] - y[2]/t_D0 + C*(y[0]**2)*(1-y[2])                     # ro
@@ -96,7 +96,7 @@ while r.successful() and r.t+dt < tEnd:
     T.append(r.t)
 
 ### Format output ###
-Y     = array(Y)                                # Convert from list to 2d array
+Y     = np.array(Y)                                # Convert from list to 2d array
 N     = Y[:, 0]
 roRes = Y[:, 1] 
 ro    = Y[:, 2] 
